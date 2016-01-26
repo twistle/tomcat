@@ -203,6 +203,7 @@ action :configure do
       shutdown_port: new_resource.shutdown_port,
       max_threads: new_resource.max_threads,
       ssl_max_threads: new_resource.ssl_max_threads,
+      keystore_file_dir: new_resource.keystore_file_dir,
       keystore_file: new_resource.keystore_file,
       keystore_type: new_resource.keystore_type,
       tomcat_auth: new_resource.tomcat_auth,
@@ -229,7 +230,7 @@ action :configure do
       command <<-EOH
         #{node['tomcat']['keytool']} \
          -genkey \
-         -keystore "#{new_resource.config_dir}/#{new_resource.keystore_file}" \
+         -keystore "#{new_resource.keystore_file_dir}/#{new_resource.keystore_file}" \
          -storepass "#{node['tomcat']['keystore_password']}" \
          -keypass "#{node['tomcat']['keystore_password']}" \
          -dname "#{node['tomcat']['certificate_dn']}" \
