@@ -128,6 +128,7 @@ node['tomcat']['instances'].each do |name, attrs|
     ssl_key_file attrs['ssl_key_file']
     ssl_chain_files attrs['ssl_chain_files']
     keystore_file attrs['keystore_file']
+    keystore_file_dir attrs['keystore_file_dir']
     keystore_type attrs['keystore_type']
     truststore_file attrs['truststore_file']
     truststore_type attrs['truststore_type']

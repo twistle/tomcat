@@ -68,6 +68,8 @@ attribute :ssl_chain_files,
   kind_of: Array
 attribute :keystore_file,
   kind_of: String
+attribute :keystore_file_dir,
+  kind_of: String
 attribute :keystore_type,
   kind_of: String,
   equal_to: %w(jks pkcs11 pkcs12)
