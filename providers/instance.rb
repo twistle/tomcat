@@ -236,7 +236,7 @@ action :configure do
          -keyalg "RSA"
       EOH
       umask 0007
-      creates "#{new_resource.config_dir}/#{new_resource.keystore_file}"
+      creates "#{new_resource.keystore_file_dir}/#{new_resource.keystore_file}"
       action :run
       notifies :restart, "service[#{instance}]"
     end
@@ -244,7 +244,7 @@ action :configure do
     script "create_keystore-#{instance}" do
       interpreter 'bash'
       action :nothing
-      cwd new_resource.config_dir
+      cwd new_resource.keystore_file_dir
       code <<-EOH
         cat #{new_resource.ssl_chain_files.join(' ')} > cacerts.pem
         openssl pkcs12 -export \
