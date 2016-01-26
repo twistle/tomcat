@@ -117,7 +117,7 @@
              <% if @ssl_proxy_port -%>
                proxyPort="<%= @ssl_proxy_port %>"
              <% end -%>
-               keystoreFile="<%= @config_dir %>/<%= @keystore_file %>"
+               keystoreFile="<%= @keystore_file_dir %>/<%= @keystore_file %>"
                keystorePass="<%= node['tomcat']['keystore_password'] %>"
                keystoreType="<%= @keystore_type %>"
                truststorePass="<%= node['tomcat']['keystore_password'] %>"
